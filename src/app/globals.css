@@ -2,26 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  --background: #ffffff;
+  --foreground: #0F1624;
+}
+
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #0F1624;
   }
+}
+
+[data-theme='dark'] {
+  --background: #0F1624; 
+  --foreground: #ffffff; 
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden; /* Esconde o overflow horizontal */
+  scroll-behavior: smooth; /* Faz a rolagem suave */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Aplica o comportamento de snapping */
+.scroll-container {
+  scroll-snap-type: y mandatory; /* Snapping obrigatório no eixo vertical */
+  overflow-y: auto; /* Ativa o overflow vertical */
+  overflow-x: hidden; /* Esconde o overflow horizontal */
+  height: 100vh; /* Garante que o container principal tenha a altura da viewport */
+  scroll-behavior: smooth; /* Rolar suavemente entre as seções */
+}
+
+/* Cada componente (seção) ocupará a altura total da tela */
+.scroll-container > * {
+  scroll-snap-align: start; /* Faz a rolagem parar no início de cada seção */
+  height: 100vh; /* Faz cada componente ocupar a tela inteira */
+  overflow-y: auto; /* Permite o scroll interno dentro das seções */
+  overflow-x: hidden; /* Esconde o scroll horizontal dentro de cada seção */
+}
+
+/* Remove a barra de rolagem */
+.scroll-container, .scroll-container > * {
+  -ms-overflow-style: none;  /* Para Internet Explorer e Edge */
+  scrollbar-width: none;      /* Para Firefox */
+}
+
+.scroll-container::-webkit-scrollbar, .scroll-container > *::-webkit-scrollbar {
+  display: none;  /* Para Chrome, Safari e Opera */
+}
+
+
+.gradient-line {
+  height: 4px; /* Altura do traço */
+  width: 100%; /* Largura do traço */
+  background: linear-gradient(to right, #FF6A00, #FFD700); /* Gradiente desejado */
+  margin-top: 4px; /* Espaço entre o "Olá" e o traço */
+}
+
+
+.greeting-light {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.greeting-light::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  bottom: 30%;
+  height: 4px;
+  width: 50px;
+  background: linear-gradient(270deg, rgb(19, 173, 199) 0%, rgb(148, 93, 214) 100%);
+  margin-left: 8px;
+  transform: translateY(50%);
+}
+
+.degrade-text-light {
+  background: linear-gradient(to right, #10103a, #6f00ff);
+  /* background: linear-gradient(270deg, rgb(1, 78, 92) 0%, rgb(0, 0, 0) 100%); */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.greeting-dark {
+  position: relative;
+  display: inline-block; /* Para que o pseudo-elemento funcione corretamente */
+  margin-bottom: 8px; /* Ajuste conforme necessário */
+}
+
+.greeting-dark::after {
+  content: ''; /* Cria o traço */
+  position: absolute;
+  left: 100%; /* Coloca o traço à direita do texto */
+  bottom: 30%; /* Centraliza verticalmente em relação ao texto */
+  height: 4px; /* Altura do traço */
+  width: 50px; /* Largura do traço (ajuste conforme desejado) */
+  background: linear-gradient(to right, #FF6A00, #FFD700); /* Gradiente desejado */
+  margin-left: 8px; /* Espaçamento entre o texto e o traço */
+  transform: translateY(50%); /* Ajusta a posição vertical para centralizar */
+}
+
+.degrade-text-dark {
+  /* background: linear-gradient(to right, #f5f5f5, #FFD700); */
+  background: linear-gradient(121.57deg, #FFFFFF 18.77%, rgba(255, 255, 255, 0.66) 60.15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900 */ 
+/* bg-slate-900  */
+
+.contact-bg {
+  position: relative;
 }
