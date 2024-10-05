@@ -60,7 +60,7 @@ export default function Header() {
             <button
               type="button"
               onClick={toggleTheme}
-              className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-none"
+              className="relative rounded-full p-1 hover:text-white focus:outline-none"
             >
               <span className="sr-only">Toggle theme</span>
               {theme === "dark" ? (
@@ -95,7 +95,7 @@ export default function Header() {
               href={item.href}
               className={classNames(
                 item.current ? 'bg-gray-900 ' : 'text-gray-700 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
+                'block rounded-md px-3 py-2 text-base font-medium text-white dark:text-gray-900',
               )}
             >
               {item.name}
