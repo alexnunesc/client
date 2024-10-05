@@ -62,7 +62,7 @@ export default function Contact() {
       <div className="mx-auto max-w-2xl text-center w-screen">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Contatos</h2>
         <p className="mt-2 text-lg leading-8">
-          Aute magna irure deserunt veniam aliqua magna enim voluptate.
+          Vamos conversar? me envie uma mensagem.
         </p>
       </div>
       <form onSubmit={emailSubmit} id='emailSubmit' className="mx-auto mb-4 mt-16 max-w-xl sm:mt-20">
