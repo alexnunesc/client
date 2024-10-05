@@ -56,10 +56,10 @@ const Initial: React.FC = () => {
         </section>
 
         <section className="mb-8">
-          <Link href="/cvfront.pdf" locale={false} target="_blank">
+          <Link href="/cvbona.pdf" locale={false} target="_blank">
             <button className="px-4 py-2 bg-white text-gray-800 rounded shadow-lg hover:bg-gray-200 transition duration-300">Download CV</button>
           </Link>
-          <Link href="#" target="_blank" rel="noopener noreferrer" className="ml-4">
+          <Link href="#contact" target="_blank" rel="noopener noreferrer" className="ml-4">
             <button className="px-4 py-2 bg-white text-gray-800 rounded shadow-lg hover:bg-gray-200 transition duration-300">Sabe mais</button>
           </Link>
         </section>
