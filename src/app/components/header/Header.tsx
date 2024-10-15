@@ -5,10 +5,9 @@ import { Bars3Icon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 
 const navigation = [
-  { name: 'Home', href: '#header', current: false },
-  { name: 'About', href: '#about', current: false },
-  { name: 'Projects', href: '#project', current: false },
-  { name: 'Contacts', href: '#contact', current: false },
+  { name: 'Sobre', href: '#about', current: false },
+  { name: 'Projetos', href: '#project', current: false },
+  { name: 'Contatos', href: '#contact', current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -16,9 +15,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
-  console.log(theme);
-  
+  const { theme, toggleTheme } = useTheme();  
 
   return (
     <Disclosure id='header' as="nav" className="">
